@@ -35,7 +35,9 @@ app.use('/', createProxyMiddleware({
   changeOrigin: true,
   pathRewrite,
   router,
-  onError
+  on: {
+    error: onError
+  }
 }));
 
 app.listen(process.env.PORT || 3000, () => {
